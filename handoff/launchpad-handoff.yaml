@@ -12,20 +12,31 @@ factory_receipt:
     may_modify_launchpad_catalog: false
     may_provision: false
     may_publish: false
-  source:
-    proposed_repository: https://github.com/jkershawrh/agentic-ai-101
-    local_path: /Users/jkershaw/Documents/agentic-ai-101
-    revision: ffc3a8e2a1a470536d76f7c5d6e9ad671416993f
+  presentation_source:
+    repository: https://github.com/jkershawrh/agentic-ai-101
+    revision: 233b72f2f245f21edea979bd1035db527a18b264
+    tree_dirty: false
   artifacts:
-    presentation: {image: "ghcr.io/jkershawrh/agentic-ai-101-presentation@sha256:e397d3e94e40fe2d91d0aca333156563d6d300d3b8fc4e5251c08ea1d7a104ea", source_state: REHEARSAL}
-    workload: {image: "ghcr.io/jkershawrh/agentic-ai-101-rehearsal@sha256:d59f5461eee2946659acf92668ce045e48c2e05250eafe4f393daf5aea2a20b8", source_state: REHEARSAL}
-    showroom_content: {revision: ffc3a8e2a1a470536d76f7c5d6e9ad671416993f, build_status: ci-green}
+    presentation:
+      image: "ghcr.io/jkershawrh/agentic-ai-101-presentation@sha256:e397d3e94e40fe2d91d0aca333156563d6d300d3b8fc4e5251c08ea1d7a104ea"
+      architecture: linux/amd64
+      source_repository: https://github.com/jkershawrh/agentic-ai-101
+      source_revision: ffc3a8e2a1a470536d76f7c5d6e9ad671416993f
+    workload:
+      image: "ghcr.io/jkershawrh/agentic-ai-101-rehearsal@sha256:d59f5461eee2946659acf92668ce045e48c2e05250eafe4f393daf5aea2a20b8"
+      architecture: linux/amd64
+      source_repository: https://github.com/jkershawrh/agentic-ai-101
+      source_revision: ffc3a8e2a1a470536d76f7c5d6e9ad671416993f
+    showroom_content:
+      repository: https://github.com/jkershawrh/agentic-ai-101
+      revision: 233b72f2f245f21edea979bd1035db527a18b264
+      build_status: ci-green
   contracts:
     demo_blueprint: demo-blueprint.yaml
     story_brief: story.brief.yaml
     workflow_request: contracts/workflow-request.v1.schema.json
     workflow_trace: contracts/workflow-trace.v1.schema.json
-  local_evidence:
+  factory_evidence:
     component_tests: {status: passed, count: 33}
     service_contract_tests: {status: passed, count: 7}
     visual_tests: {status: passed, count: 9, viewports: [stage-1080p, laptop, rehearsal-mobile]}
@@ -33,58 +44,71 @@ factory_receipt:
     offline_assets: passed
     showroom_pages: {status: passed, count: 6}
     openshift_manifest_render: passed
-  artifact_evidence:
-    workflow: https://github.com/jkershawrh/agentic-ai-101/actions/runs/37053750578
+    artifact_workflow: https://github.com/jkershawrh/agentic-ai-101/actions/runs/37053750578
     linux_amd64: passed
     fixable_high_critical_scan: passed
     spdx_sbom: passed
     keyless_signature: verified
     sbom_attestation: verified
     provenance_attestation: verified
-  proposed_launchpad_intake:
-    catalog:
-      catalog_item_id: agentic-ai-101
-      display_name: "Agentic AI 101 — Understand Agentic Workflows"
-      description: "Trace a request through model proposal, bounded tools, source-labeled evidence, deterministic policy, human authority, and a reviewable workflow record."
-      category: guided_build
-      version: 0.1.0
-      status: draft
-    learning:
-      learning_level: "101"
-      learning_stage: Learn
-      experience_type: guided_foundations
-      prerequisites: []
-      recommended_next_items: [intel-xeon6-agent-201]
-      journey_role: core
-      shared_blueprint: red-hat-intel-agentic-v1
-      solution_family: agentic_ai
-    runtime:
-      deployment_type: kustomize
-      deployment_class: shared_namespace
-      deployment_scope: participant_namespace
-      supported_architectures: [linux/amd64]
-      required_capabilities: [openshift, showroom]
-      required_models: []
-      exposure_policy: internal
-      ingress: participant-route
-      egress: none
-      cluster_scoped_resources: false
-      cleanup_owner: launchpad-workshop-reclaim
-      source_state: REHEARSAL
-      resources:
-        steady_per_seat: {cpu_millicores: 50, memory_mib: 64, pods: 2, storage_gib: 0}
-        peak_per_seat: {cpu_millicores: 400, memory_mib: 192, pods: 2}
-        workshop_shared: {cpu_millicores: 0, memory_mib: 0, pods: 0, storage_gib: 0}
-        observed_largest_run: 0
-        measurement_status: LOCAL_ONLY
-      tabs:
-        - {id: story, title: Story, source: workload.route.ui}
-        - {id: guide, title: Lab Guide, source: showroom.guide}
-        - {id: terminal, title: Terminal, source: showroom.terminal}
-      readiness_checks: [pod-ready, presentation-readyz-through-service, service-readyz, read-only-contract, state-change-contract]
   known_blockers:
     - Destination OpenShift admission, Route behavior, Showroom integration, and participant terminal execution remain unverified.
     - One-seat provisioning, participant journey, reclaim, and zero-residue evidence remain unverified.
     - No live model participation, Intel hardware placement, performance, autonomous action, or production readiness is claimed.
-  requested_pipeline_actions: [generate_draft, trusted_render_review]
-  subsequent_independent_gates: [generate_draft, trusted_render_review, one-seat-certification, reclaim-zero-residue, request_review, promote]
+
+proposed_launchpad_intake:
+  catalog:
+    catalog_item_id: agentic-ai-101
+    display_name: "Agentic AI 101 — Understand Agentic Workflows"
+    description: "Trace a request through model proposal, bounded tools, source-labeled evidence, deterministic policy, human authority, and a reviewable workflow record."
+    category: guided_build
+    version: 0.1.0
+    status: draft
+  learning:
+    learning_level: "101"
+    learning_stage: Learn
+    experience_type: guided_foundations
+    prerequisites: []
+    recommended_next_items: [intel-xeon6-agent-201]
+    journey_role: core
+    specialty_family: null
+    branches_from: null
+    returns_to: null
+    shared_blueprint: red-hat-intel-agentic-v1
+    solution_family: agentic_ai
+  sources:
+    showroom:
+      repo_url: https://github.com/jkershawrh/agentic-ai-101
+      revision: 233b72f2f245f21edea979bd1035db527a18b264
+      playbook: site.yml
+      start_path: showroom
+    workload:
+      repo_url: https://github.com/jkershawrh/agentic-ai-101
+      revision: 233b72f2f245f21edea979bd1035db527a18b264
+      deploy_path: deploy/openshift/base
+  runtime:
+    deployment_type: kustomize
+    deployment_class: participant_namespace
+    deployment_scope: participant_namespace
+    supported_architectures: [linux/amd64]
+    required_capabilities: [openshift, showroom]
+    required_models: []
+    exposure_policy: internal
+    cluster_scoped_resources: false
+    source_state: REHEARSAL
+    resources:
+      steady_per_seat: {cpu_millicores: 50, memory_mib: 64, pods: 2, storage_gib: 0}
+      peak_per_seat: {cpu_millicores: 400, memory_mib: 192, pods: 2}
+      workshop_shared: {cpu_millicores: 0, memory_mib: 0, pods: 0, storage_gib: 0}
+      observed_largest_run: 0
+      measurement_status: LOCAL_ONLY
+    tabs:
+      - {id: story, title: Interactive Story, source: workload.route.presentation}
+      - {id: terminal, title: Terminal, source: showroom.terminal}
+    workload:
+      deployment_values:
+        workload_image: "ghcr.io/jkershawrh/agentic-ai-101-rehearsal@sha256:d59f5461eee2946659acf92668ce045e48c2e05250eafe4f393daf5aea2a20b8"
+        presentation_image: "ghcr.io/jkershawrh/agentic-ai-101-presentation@sha256:e397d3e94e40fe2d91d0aca333156563d6d300d3b8fc4e5251c08ea1d7a104ea"
+        source_state: REHEARSAL
+  certification_proposal:
+    proof_contract_draft: certification/catalog/agentic-ai-101.yaml
