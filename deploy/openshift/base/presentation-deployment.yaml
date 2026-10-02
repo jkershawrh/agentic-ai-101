@@ -15,12 +15,18 @@ spec:
         app.kubernetes.io/component: presentation
     spec:
       automountServiceAccountToken: false
+      volumes:
+        - name: nginx-temporary-files
+          emptyDir: {}
       containers:
         - name: presentation
           image: ghcr.io/jkershawrh/agentic-ai-101-presentation@sha256:e397d3e94e40fe2d91d0aca333156563d6d300d3b8fc4e5251c08ea1d7a104ea
           imagePullPolicy: IfNotPresent
           ports:
             - {name: http, containerPort: 8080}
+          volumeMounts:
+            - name: nginx-temporary-files
+              mountPath: /tmp
           readinessProbe:
             httpGet: {path: /readyz, port: http}
             initialDelaySeconds: 2
