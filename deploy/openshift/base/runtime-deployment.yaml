@@ -17,7 +17,7 @@ spec:
       automountServiceAccountToken: false
       containers:
         - name: service
-          image: agentic-ai-101-service:0.1.0
+          image: ghcr.io/jkershawrh/agentic-ai-101-rehearsal@sha256:d59f5461eee2946659acf92668ce045e48c2e05250eafe4f393daf5aea2a20b8
           imagePullPolicy: IfNotPresent
           ports:
             - {name: http, containerPort: 8080}
@@ -38,4 +38,3 @@ spec:
             readOnlyRootFilesystem: true
             runAsNonRoot: true
             seccompProfile: {type: RuntimeDefault}
-

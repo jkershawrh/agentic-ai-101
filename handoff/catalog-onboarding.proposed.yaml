@@ -5,14 +5,13 @@ metadata:
   status: draft
 spec:
   repository: https://github.com/jkershawrh/agentic-ai-101
-  revision: pending-published-source-revision
+  revision: ffc3a8e2a1a470536d76f7c5d6e9ad671416993f
   learning_level: "101"
   source_classes:
     showroom: {playbook: site.yml, start_path: showroom}
     workload: {deploy_path: deploy/openshift/base}
-  requested_actions: [approve_source, run_discovery]
+  requested_actions: [generate_draft, trusted_render_review]
   authority:
     may_modify_catalog: false
     may_provision: false
     may_publish: false
-

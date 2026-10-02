@@ -15,11 +15,11 @@ factory_receipt:
   source:
     proposed_repository: https://github.com/jkershawrh/agentic-ai-101
     local_path: /Users/jkershaw/Documents/agentic-ai-101
-    revision: pending-published-source-revision
+    revision: ffc3a8e2a1a470536d76f7c5d6e9ad671416993f
   artifacts:
-    presentation: {image: pending-immutable-build, source_state: REHEARSAL}
-    workload: {image: pending-immutable-build, source_state: REHEARSAL}
-    showroom_content: {revision: pending-published-source-revision, build_status: local-green}
+    presentation: {image: "ghcr.io/jkershawrh/agentic-ai-101-presentation@sha256:e397d3e94e40fe2d91d0aca333156563d6d300d3b8fc4e5251c08ea1d7a104ea", source_state: REHEARSAL}
+    workload: {image: "ghcr.io/jkershawrh/agentic-ai-101-rehearsal@sha256:d59f5461eee2946659acf92668ce045e48c2e05250eafe4f393daf5aea2a20b8", source_state: REHEARSAL}
+    showroom_content: {revision: ffc3a8e2a1a470536d76f7c5d6e9ad671416993f, build_status: ci-green}
   contracts:
     demo_blueprint: demo-blueprint.yaml
     story_brief: story.brief.yaml
@@ -33,6 +33,14 @@ factory_receipt:
     offline_assets: passed
     showroom_pages: {status: passed, count: 6}
     openshift_manifest_render: passed
+  artifact_evidence:
+    workflow: https://github.com/jkershawrh/agentic-ai-101/actions/runs/37053750578
+    linux_amd64: passed
+    fixable_high_critical_scan: passed
+    spdx_sbom: passed
+    keyless_signature: verified
+    sbom_attestation: verified
+    provenance_attestation: verified
   proposed_launchpad_intake:
     catalog:
       catalog_item_id: agentic-ai-101
@@ -75,10 +83,8 @@ factory_receipt:
         - {id: terminal, title: Terminal, source: showroom.terminal}
       readiness_checks: [pod-ready, presentation-readyz-through-service, service-readyz, read-only-contract, state-change-contract]
   known_blockers:
-    - Source repository has not been published and bound to an immutable revision.
-    - Presentation and workload images have not been built, signed, attested, or pinned by digest.
     - Destination OpenShift admission, Route behavior, Showroom integration, and participant terminal execution remain unverified.
     - One-seat provisioning, participant journey, reclaim, and zero-residue evidence remain unverified.
     - No live model participation, Intel hardware placement, performance, autonomous action, or production readiness is claimed.
-  requested_pipeline_actions: [approve_source, run_discovery]
-  subsequent_independent_gates: [immutable_build, artifact_review, generate_draft, trusted_render_review, one-seat-certification, reclaim-zero-residue, request_review, promote]
+  requested_pipeline_actions: [generate_draft, trusted_render_review]
+  subsequent_independent_gates: [generate_draft, trusted_render_review, one-seat-certification, reclaim-zero-residue, request_review, promote]
