@@ -14,7 +14,7 @@ factory_receipt:
     may_publish: false
   presentation_source:
     repository: https://github.com/jkershawrh/agentic-ai-101
-    revision: 79998ff66d5d0e2a18f001f0e096badda06f0671
+    revision: 0458cc6ed797e2d54ef02d177224804beffb3638
     tree_dirty: false
   artifacts:
     presentation:
@@ -29,7 +29,7 @@ factory_receipt:
       source_revision: 9160ab05830cd68ab2746e03dd200bea5e5d016a
     showroom_content:
       repository: https://github.com/jkershawrh/agentic-ai-101
-      revision: 79998ff66d5d0e2a18f001f0e096badda06f0671
+      revision: 0458cc6ed797e2d54ef02d177224804beffb3638
       build_status: ci-green
   contracts:
     demo_blueprint: demo-blueprint.yaml
@@ -79,12 +79,12 @@ proposed_launchpad_intake:
   sources:
     showroom:
       repo_url: https://github.com/jkershawrh/agentic-ai-101
-      revision: 79998ff66d5d0e2a18f001f0e096badda06f0671
+      revision: 0458cc6ed797e2d54ef02d177224804beffb3638
       playbook: site.yml
       start_path: showroom
     workload:
       repo_url: https://github.com/jkershawrh/agentic-ai-101
-      revision: 79998ff66d5d0e2a18f001f0e096badda06f0671
+      revision: 0458cc6ed797e2d54ef02d177224804beffb3638
       deploy_path: deploy/openshift/base
   runtime:
     deployment_type: kustomize
