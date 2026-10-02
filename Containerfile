@@ -5,7 +5,10 @@ RUN npm ci
 COPY --chown=1001:0 . .
 RUN npm run build
 
-FROM docker.io/nginxinc/nginx-unprivileged:1.27-alpine
+FROM docker.io/nginxinc/nginx-unprivileged:1.29-alpine
+USER root
+RUN apk upgrade --no-cache
 COPY --from=build /opt/app-root/src/dist /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf
+USER 101
 EXPOSE 8080

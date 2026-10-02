@@ -1,5 +1,12 @@
 FROM registry.access.redhat.com/ubi9/nodejs-22-minimal:latest
 
+USER 0
+# The service has no runtime package dependencies. Remove npm/nodemon and their
+# transitive installer packages so the runtime contains only what it executes.
+RUN microdnf update -y \
+    && microdnf clean all \
+    && rm -rf /var/cache/dnf /usr/lib/node_modules /usr/bin/npm /usr/bin/npx /usr/bin/nodemon
+
 WORKDIR /opt/app-root/src
 COPY --chown=1001:0 service ./service
 
