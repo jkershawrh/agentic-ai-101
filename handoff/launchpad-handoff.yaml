@@ -14,22 +14,22 @@ factory_receipt:
     may_publish: false
   presentation_source:
     repository: https://github.com/jkershawrh/agentic-ai-101
-    revision: 233b72f2f245f21edea979bd1035db527a18b264
+    revision: 9160ab05830cd68ab2746e03dd200bea5e5d016a
     tree_dirty: false
   artifacts:
     presentation:
-      image: "ghcr.io/jkershawrh/agentic-ai-101-presentation@sha256:e397d3e94e40fe2d91d0aca333156563d6d300d3b8fc4e5251c08ea1d7a104ea"
+      image: "ghcr.io/jkershawrh/agentic-ai-101-presentation@sha256:311b0ee016af01c76f8339ccc14006060d4e9d1fb5feab856c0c15aefa426d0f"
       architecture: linux/amd64
       source_repository: https://github.com/jkershawrh/agentic-ai-101
-      source_revision: ffc3a8e2a1a470536d76f7c5d6e9ad671416993f
+      source_revision: 9160ab05830cd68ab2746e03dd200bea5e5d016a
     workload:
-      image: "ghcr.io/jkershawrh/agentic-ai-101-rehearsal@sha256:d59f5461eee2946659acf92668ce045e48c2e05250eafe4f393daf5aea2a20b8"
+      image: "ghcr.io/jkershawrh/agentic-ai-101-rehearsal@sha256:7839278c27a1960f425e37dbe3a8c4479d61c866727207976446120686bf3e63"
       architecture: linux/amd64
       source_repository: https://github.com/jkershawrh/agentic-ai-101
-      source_revision: ffc3a8e2a1a470536d76f7c5d6e9ad671416993f
+      source_revision: 9160ab05830cd68ab2746e03dd200bea5e5d016a
     showroom_content:
       repository: https://github.com/jkershawrh/agentic-ai-101
-      revision: 233b72f2f245f21edea979bd1035db527a18b264
+      revision: 9160ab05830cd68ab2746e03dd200bea5e5d016a
       build_status: ci-green
   contracts:
     demo_blueprint: demo-blueprint.yaml
@@ -38,13 +38,13 @@ factory_receipt:
     workflow_trace: contracts/workflow-trace.v1.schema.json
   factory_evidence:
     component_tests: {status: passed, count: 33}
-    service_contract_tests: {status: passed, count: 7}
+    service_contract_tests: {status: passed, count: 9}
     visual_tests: {status: passed, count: 9, viewports: [stage-1080p, laptop, rehearsal-mobile]}
     presentation_build: passed
     offline_assets: passed
     showroom_pages: {status: passed, count: 6}
     openshift_manifest_render: passed
-    artifact_workflow: https://github.com/jkershawrh/agentic-ai-101/actions/runs/37053750578
+    artifact_workflow: https://github.com/jkershawrh/agentic-ai-101/actions/runs/37056295405
     linux_amd64: passed
     fixable_high_critical_scan: passed
     spdx_sbom: passed
@@ -79,12 +79,12 @@ proposed_launchpad_intake:
   sources:
     showroom:
       repo_url: https://github.com/jkershawrh/agentic-ai-101
-      revision: 233b72f2f245f21edea979bd1035db527a18b264
+      revision: 9160ab05830cd68ab2746e03dd200bea5e5d016a
       playbook: site.yml
       start_path: showroom
     workload:
       repo_url: https://github.com/jkershawrh/agentic-ai-101
-      revision: 233b72f2f245f21edea979bd1035db527a18b264
+      revision: 9160ab05830cd68ab2746e03dd200bea5e5d016a
       deploy_path: deploy/openshift/base
   runtime:
     deployment_type: kustomize
@@ -107,8 +107,8 @@ proposed_launchpad_intake:
       - {id: terminal, title: Terminal, source: showroom.terminal}
     workload:
       deployment_values:
-        workload_image: "ghcr.io/jkershawrh/agentic-ai-101-rehearsal@sha256:d59f5461eee2946659acf92668ce045e48c2e05250eafe4f393daf5aea2a20b8"
-        presentation_image: "ghcr.io/jkershawrh/agentic-ai-101-presentation@sha256:e397d3e94e40fe2d91d0aca333156563d6d300d3b8fc4e5251c08ea1d7a104ea"
+        workload_image: "ghcr.io/jkershawrh/agentic-ai-101-rehearsal@sha256:7839278c27a1960f425e37dbe3a8c4479d61c866727207976446120686bf3e63"
+        presentation_image: "ghcr.io/jkershawrh/agentic-ai-101-presentation@sha256:311b0ee016af01c76f8339ccc14006060d4e9d1fb5feab856c0c15aefa426d0f"
         source_state: REHEARSAL
   certification_proposal:
     proof_contract_draft: certification/catalog/agentic-ai-101.yaml

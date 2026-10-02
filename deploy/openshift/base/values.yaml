@@ -1,7 +1,7 @@
 presentation:
-  image: ghcr.io/jkershawrh/agentic-ai-101-presentation@sha256:e397d3e94e40fe2d91d0aca333156563d6d300d3b8fc4e5251c08ea1d7a104ea
+  image: ghcr.io/jkershawrh/agentic-ai-101-presentation@sha256:311b0ee016af01c76f8339ccc14006060d4e9d1fb5feab856c0c15aefa426d0f
 runtime:
-  image: ghcr.io/jkershawrh/agentic-ai-101-rehearsal@sha256:d59f5461eee2946659acf92668ce045e48c2e05250eafe4f393daf5aea2a20b8
+  image: ghcr.io/jkershawrh/agentic-ai-101-rehearsal@sha256:7839278c27a1960f425e37dbe3a8c4479d61c866727207976446120686bf3e63
 sourceState: REHEARSAL
 resources:
   steadyPerSeat:

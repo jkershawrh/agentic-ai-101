@@ -5,7 +5,7 @@ metadata:
   status: draft
 spec:
   repository: https://github.com/jkershawrh/agentic-ai-101
-  revision: ffc3a8e2a1a470536d76f7c5d6e9ad671416993f
+  revision: 9160ab05830cd68ab2746e03dd200bea5e5d016a
   learning_level: "101"
   source_classes:
     showroom: {playbook: site.yml, start_path: showroom}
