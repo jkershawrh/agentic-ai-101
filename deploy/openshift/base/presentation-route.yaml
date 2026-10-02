@@ -1,7 +1,9 @@
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
-  name: agentic-ai-101-presentation
+  # OpenShift prefixes the generated host with the Route name. Keep this short
+  # enough for Launchpad's per-seat namespace to remain a valid DNS label.
+  name: story
 spec:
   to:
     kind: Service
@@ -10,4 +12,3 @@ spec:
   tls:
     termination: edge
     insecureEdgeTerminationPolicy: Redirect
-

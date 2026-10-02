@@ -22,3 +22,17 @@ test("the per-seat presentation does not size workers from the cluster CPU count
 
   assert.match(containerfile, /worker_processes 1/);
 });
+
+test("the generated per-seat presentation hostname stays within the DNS label limit", async () => {
+  const route = await readFile(
+    new URL("../deploy/openshift/base/presentation-route.yaml", import.meta.url),
+    "utf8",
+  );
+  const routeName = route.match(/metadata:\s*\n(?:\s*#.*\n)*\s*name:\s*([^\s]+)/)?.[1];
+  const longestLaunchpadNamespace =
+    "launchpad-flightpath-candida-agentic-ai-101-123456";
+
+  assert.equal(routeName, "story");
+  assert.ok(`${routeName}-${longestLaunchpadNamespace}`.length <= 63);
+  assert.match(route, /to:\s*\n\s*kind:\s*Service\s*\n\s*name:\s*agentic-ai-101-presentation/);
+});
