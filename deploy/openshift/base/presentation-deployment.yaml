@@ -22,7 +22,7 @@ spec:
           ports:
             - {name: http, containerPort: 8080}
           readinessProbe:
-            httpGet: {path: /healthz, port: http}
+            httpGet: {path: /readyz, port: http}
             initialDelaySeconds: 2
             periodSeconds: 5
           livenessProbe:
@@ -38,4 +38,3 @@ spec:
             readOnlyRootFilesystem: true
             runAsNonRoot: true
             seccompProfile: {type: RuntimeDefault}
-

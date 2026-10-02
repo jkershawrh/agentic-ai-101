@@ -16,6 +16,7 @@ The experience distinguishes model proposal, bounded tools, source-labeled evide
 - Visual checks: 9 passing across stage, laptop, and mobile
 - Production build and offline asset verification: green
 - Six-page Showroom journey, executable commands, content validation, and link validation: green
+- Local presentation-to-service container integration, readiness, and both workflow paths: green
 - Launchpad lifecycle: draft, not orderable
 
 The current proof is labeled `REHEARSAL`. It makes no claim of live model inference, Intel hardware placement, performance, autonomous action, or production readiness.

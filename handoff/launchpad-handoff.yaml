@@ -73,7 +73,7 @@ factory_receipt:
         - {id: story, title: Story, source: workload.route.ui}
         - {id: guide, title: Lab Guide, source: showroom.guide}
         - {id: terminal, title: Terminal, source: showroom.terminal}
-      readiness_checks: [pod-ready, presentation-healthz, service-readyz, read-only-contract, state-change-contract]
+      readiness_checks: [pod-ready, presentation-readyz-through-service, service-readyz, read-only-contract, state-change-contract]
   known_blockers:
     - Source repository has not been published and bound to an immutable revision.
     - Presentation and workload images have not been built, signed, attested, or pinned by digest.
@@ -82,4 +82,3 @@ factory_receipt:
     - No live model participation, Intel hardware placement, performance, autonomous action, or production readiness is claimed.
   requested_pipeline_actions: [approve_source, run_discovery]
   subsequent_independent_gates: [immutable_build, artifact_review, generate_draft, trusted_render_review, one-seat-certification, reclaim-zero-residue, request_review, promote]
-
