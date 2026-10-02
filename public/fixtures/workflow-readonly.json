@@ -1,0 +1,15 @@
+{
+  "data": {
+    "sourceState": "REHEARSAL",
+    "requestClass": "read-only investigation",
+    "modelRole": "scripted advisory proposal",
+    "toolClass": "approved read-only status tool",
+    "evidenceSummary": "Service state returned by the rehearsal fixture",
+    "policyDecision": "explanation permitted",
+    "humanAuthority": "operator reviews conclusion",
+    "targetMutated": false,
+    "outcome": "grounded explanation returned",
+    "traceId": "rehearsal-readonly-v1"
+  },
+  "collectedAt": "2026-10-02T00:00:00.000Z"
+}

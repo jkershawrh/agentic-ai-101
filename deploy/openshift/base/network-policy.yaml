@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: agentic-ai-101-runtime-ingress
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/name: agentic-ai-101
+      app.kubernetes.io/component: rehearsal-service
+  policyTypes: [Ingress]
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/name: agentic-ai-101
+              app.kubernetes.io/component: presentation
+        - podSelector:
+            matchLabels:
+              app: showroom
+      ports:
+        - {protocol: TCP, port: 8080}
+

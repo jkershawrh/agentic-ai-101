@@ -1,0 +1,13 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: agentic-ai-101-presentation
+spec:
+  to:
+    kind: Service
+    name: agentic-ai-101-presentation
+  port: {targetPort: http}
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
+

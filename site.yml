@@ -1,0 +1,14 @@
+site:
+  title: Agentic AI 101 — Understand Agentic Workflows
+  start_page: agentic-ai-101::index.adoc
+content:
+  sources:
+    - url: .
+      start_path: showroom
+ui:
+  bundle:
+    url: https://github.com/rhpds/rhdp_showroom_theme/releases/download/latest/ui-bundle.zip
+    snapshot: true
+output:
+  dir: ./showroom/build/site
+

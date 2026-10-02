@@ -1,0 +1,19 @@
+presentation:
+  image: agentic-ai-101-presentation:0.1.0
+runtime:
+  image: agentic-ai-101-service:0.1.0
+sourceState: REHEARSAL
+resources:
+  steadyPerSeat:
+    cpuMillicores: 50
+    memoryMiB: 64
+    pods: 2
+    storageGiB: 0
+  peakPerSeat:
+    cpuMillicores: 400
+    memoryMiB: 192
+    pods: 2
+certification:
+  observedLargestRun: 0
+  status: NOT_LIVE_CERTIFIED
+

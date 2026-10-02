@@ -1,0 +1,51 @@
+= Investigate with evidence
+:page-duration-minutes: 5
+
+include::partial$status.adoc[]
+
+== Show
+
+Run a read-only service investigation and inspect the recorded responsibility of every component.
+
+== Learn
+
+A read-only tool may gather evidence without changing the target. Policy can permit an explanation while a human still reviews the conclusion.
+
+== Do
+
+Check readiness, run the read-only scenario, and save its trace.
+
+[source,bash,role="execute"]
+----
+export AGENTIC_101_API_URL="${AGENTIC_101_API_URL:-http://agentic-ai-101:8080}"
+curl -fsS "$AGENTIC_101_API_URL/readyz" | jq
+
+curl -fsS -X POST "$AGENTIC_101_API_URL/api/v1/workflows/run" \
+  -H 'Content-Type: application/json' \
+  -d '{"scenario":"read-only"}' \
+  | tee "$HOME/agentic-ai-101/read-only.json" \
+  | jq '{sourceState,requestClass,modelRole,toolClass,evidenceSummary,policyDecision,humanAuthority,targetMutated,outcome,traceId}'
+----
+
+== Prove
+
+The trace must identify a read-only investigation, an approved read-only tool, source-labeled evidence, an explanation-permitted policy result, and `targetMutated: false`.
+
+[source,bash,role="execute"]
+----
+jq -e '
+  .sourceState == "REHEARSAL" and
+  .requestClass == "read-only investigation" and
+  .toolClass == "approved read-only status tool" and
+  .policyDecision == "explanation permitted" and
+  .targetMutated == false
+' "$HOME/agentic-ai-101/read-only.json" >/dev/null \
+  && echo 'PASS: read-only evidence and authority boundary verified'
+----
+
+=== Learner checkpoint
+
+*Pass when:* the command prints `PASS` and you can point to the tool—not the model—as the source of evidence.
+
+Next: xref:02-request-action.adoc[request a controlled action].
+

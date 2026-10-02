@@ -1,0 +1,12 @@
+node_modules/
+dist/
+test-results/
+playwright-report/
+showroom/node_modules/
+showroom/build/
+.DS_Store
+*.log
+.env
+.env.*
+!.env.example
+

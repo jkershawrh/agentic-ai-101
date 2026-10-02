@@ -1,0 +1,17 @@
+{
+  "name": "agentic-ai-101-showroom",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "build": "antora --clean --fetch ../site.yml",
+    "check:content": "node scripts/validate-content.mjs",
+    "check:links": "node scripts/check-links.mjs",
+    "check": "npm run check:content && npm run build && npm run check:links"
+  },
+  "devDependencies": {
+    "@antora/cli": "3.2.0",
+    "@antora/site-generator": "3.2.0"
+  }
+}
+

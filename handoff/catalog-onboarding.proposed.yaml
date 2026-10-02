@@ -1,0 +1,18 @@
+api_version: launchpad.redhat.com/v1alpha1
+kind: CatalogOnboardingProposal
+metadata:
+  catalog_item_id: agentic-ai-101
+  status: draft
+spec:
+  repository: https://github.com/jkershawrh/agentic-ai-101
+  revision: pending-published-source-revision
+  learning_level: "101"
+  source_classes:
+    showroom: {playbook: site.yml, start_path: showroom}
+    workload: {deploy_path: deploy/openshift/base}
+  requested_actions: [approve_source, run_discovery]
+  authority:
+    may_modify_catalog: false
+    may_provision: false
+    may_publish: false
+

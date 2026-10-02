@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://launchpad.redhat-intel.example/contracts/workflow-request.v1.schema.json",
+  "title": "Agentic AI 101 workflow request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["scenario"],
+  "properties": {
+    "scenario": { "enum": ["read-only", "state-change"] }
+  }
+}

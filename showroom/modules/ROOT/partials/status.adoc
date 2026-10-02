@@ -1,0 +1,5 @@
+[NOTE]
+====
+This foundation experience uses a deterministic **REHEARSAL** service. It teaches workflow and authority boundaries; it does not claim live model inference, Intel hardware placement, performance, autonomous action, or production readiness.
+====
+

@@ -1,0 +1,46 @@
+= Frame the workflow
+:page-duration-minutes: 3
+
+include::partial$status.adoc[]
+
+== Show
+
+Turn an ambiguous “AI agent” claim into six responsibilities you can inspect.
+
+== Learn
+
+An agentic workflow is not merely a prompt that calls a tool. Useful agency requires explicit separation between planning, tool access, evidence, policy, and authority.
+
+== Do
+
+Create your workflow map and predict what should happen for the two requests.
+
+[source,bash,role="execute"]
+----
+mkdir -p "$HOME/agentic-ai-101"
+cat > "$HOME/agentic-ai-101/workflow-map.md" <<'EOF'
+# Agentic AI 101 workflow map
+
+- Pattern: Ask → Plan → Use → Prove → Decide → Record
+- Read-only prediction:
+- State-change prediction:
+- Read-only result:
+- State-change result:
+- Evidence source:
+- Authority owner:
+- Target mutated:
+- Learner conclusion:
+EOF
+cat "$HOME/agentic-ai-101/workflow-map.md"
+----
+
+== Prove
+
+You created an artifact for the workflow decision rather than treating generated prose as proof.
+
+=== Learner checkpoint
+
+*Pass when:* you can explain why a model proposal, a tool call, and permission to act are three different things.
+
+Next: xref:01-investigate.adoc[investigate with evidence].
+

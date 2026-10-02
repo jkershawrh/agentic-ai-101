@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: agentic-ai-101-presentation
+spec:
+  selector:
+    app.kubernetes.io/name: agentic-ai-101
+    app.kubernetes.io/component: presentation
+  ports:
+    - {name: http, port: 8080, targetPort: http}
+

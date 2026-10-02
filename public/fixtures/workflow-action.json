@@ -1,0 +1,15 @@
+{
+  "data": {
+    "sourceState": "REHEARSAL",
+    "requestClass": "state-changing action",
+    "modelRole": "scripted advisory proposal",
+    "toolClass": "controlled change request",
+    "evidenceSummary": "Action intent recorded; no mutation attempted",
+    "policyDecision": "deny and escalate",
+    "humanAuthority": "explicit operator approval required",
+    "targetMutated": false,
+    "outcome": "change withheld and escalation recorded",
+    "traceId": "rehearsal-action-v1"
+  },
+  "collectedAt": "2026-10-02T00:00:00.000Z"
+}

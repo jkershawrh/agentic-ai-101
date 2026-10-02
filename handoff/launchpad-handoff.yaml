@@ -1,0 +1,85 @@
+schema_version: demo-story.redhat-intel.com/launchpad-handoff/v1
+factory_receipt:
+  identity:
+    catalog_item_id: agentic-ai-101
+    display_name: "Agentic AI 101 — Understand Agentic Workflows"
+    proposed_track: agentic_ai
+    proposed_learning_level: "101"
+  authority:
+    orderable: false
+    certified: false
+    promotion_eligible: false
+    may_modify_launchpad_catalog: false
+    may_provision: false
+    may_publish: false
+  source:
+    proposed_repository: https://github.com/jkershawrh/agentic-ai-101
+    local_path: /Users/jkershaw/Documents/agentic-ai-101
+    revision: pending-published-source-revision
+  artifacts:
+    presentation: {image: pending-immutable-build, source_state: REHEARSAL}
+    workload: {image: pending-immutable-build, source_state: REHEARSAL}
+    showroom_content: {revision: pending-published-source-revision, build_status: local-green}
+  contracts:
+    demo_blueprint: demo-blueprint.yaml
+    story_brief: story.brief.yaml
+    workflow_request: contracts/workflow-request.v1.schema.json
+    workflow_trace: contracts/workflow-trace.v1.schema.json
+  local_evidence:
+    component_tests: {status: passed, count: 33}
+    service_contract_tests: {status: passed, count: 7}
+    visual_tests: {status: passed, count: 9, viewports: [stage-1080p, laptop, rehearsal-mobile]}
+    presentation_build: passed
+    offline_assets: passed
+    showroom_pages: {status: passed, count: 6}
+    openshift_manifest_render: passed
+  proposed_launchpad_intake:
+    catalog:
+      catalog_item_id: agentic-ai-101
+      display_name: "Agentic AI 101 — Understand Agentic Workflows"
+      description: "Trace a request through model proposal, bounded tools, source-labeled evidence, deterministic policy, human authority, and a reviewable workflow record."
+      category: guided_build
+      version: 0.1.0
+      status: draft
+    learning:
+      learning_level: "101"
+      learning_stage: Learn
+      experience_type: guided_foundations
+      prerequisites: []
+      recommended_next_items: [intel-xeon6-agent-201]
+      journey_role: core
+      shared_blueprint: red-hat-intel-agentic-v1
+      solution_family: agentic_ai
+    runtime:
+      deployment_type: kustomize
+      deployment_class: shared_namespace
+      deployment_scope: participant_namespace
+      supported_architectures: [linux/amd64]
+      required_capabilities: [openshift, showroom]
+      required_models: []
+      exposure_policy: internal
+      ingress: participant-route
+      egress: none
+      cluster_scoped_resources: false
+      cleanup_owner: launchpad-workshop-reclaim
+      source_state: REHEARSAL
+      resources:
+        steady_per_seat: {cpu_millicores: 50, memory_mib: 64, pods: 2, storage_gib: 0}
+        peak_per_seat: {cpu_millicores: 400, memory_mib: 192, pods: 2}
+        workshop_shared: {cpu_millicores: 0, memory_mib: 0, pods: 0, storage_gib: 0}
+        observed_largest_run: 0
+        measurement_status: LOCAL_ONLY
+      tabs:
+        - {id: story, title: Story, source: workload.route.ui}
+        - {id: guide, title: Lab Guide, source: showroom.guide}
+        - {id: terminal, title: Terminal, source: showroom.terminal}
+      readiness_checks: [pod-ready, presentation-healthz, service-readyz, read-only-contract, state-change-contract]
+  known_blockers:
+    - Source repository has not been published and bound to an immutable revision.
+    - Presentation and workload images have not been built, signed, attested, or pinned by digest.
+    - Destination OpenShift admission, Route behavior, Showroom integration, and participant terminal execution remain unverified.
+    - One-seat provisioning, participant journey, reclaim, and zero-residue evidence remain unverified.
+    - No live model participation, Intel hardware placement, performance, autonomous action, or production readiness is claimed.
+  requested_pipeline_actions: [approve_source, run_discovery]
+  subsequent_independent_gates: [immutable_build, artifact_review, generate_draft, trusted_render_review, one-seat-certification, reclaim-zero-residue, request_review, promote]
+

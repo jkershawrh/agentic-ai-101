@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://launchpad.redhat-intel.example/contracts/workflow-trace.v1.schema.json",
+  "title": "Agentic AI 101 workflow trace",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "sourceState",
+    "requestClass",
+    "modelRole",
+    "toolClass",
+    "evidenceSummary",
+    "policyDecision",
+    "humanAuthority",
+    "targetMutated",
+    "outcome",
+    "traceId"
+  ],
+  "properties": {
+    "sourceState": { "const": "REHEARSAL" },
+    "requestClass": { "enum": ["read-only investigation", "state-changing action"] },
+    "modelRole": { "const": "scripted advisory proposal" },
+    "toolClass": { "enum": ["approved read-only status tool", "controlled change request"] },
+    "evidenceSummary": { "type": "string", "minLength": 1 },
+    "policyDecision": { "enum": ["explanation permitted", "deny and escalate"] },
+    "humanAuthority": { "enum": ["operator reviews conclusion", "explicit operator approval required"] },
+    "targetMutated": { "const": false },
+    "outcome": { "type": "string", "minLength": 1 },
+    "traceId": { "type": "string", "pattern": "^rehearsal-[a-z-]+-v1$" }
+  }
+}

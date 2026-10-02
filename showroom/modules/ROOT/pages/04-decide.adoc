@@ -1,0 +1,42 @@
+= Prove understanding
+:page-duration-minutes: 4
+
+include::partial$status.adoc[]
+
+== Show
+
+Turn the traces into a reusable design rule for your next agent.
+
+== Learn
+
+Agentic AI is accountable coordination: the model proposes, tools interact with systems, evidence supports the result, policy controls permission, people retain authority, and the trace makes the run reviewable.
+
+== Do
+
+Record the conclusion and inspect the completed workflow map.
+
+[source,bash,role="execute"]
+----
+sed -i 's|- Learner conclusion:.*|- Learner conclusion: Model proposals do not grant tool scope or action authority; deterministic policy and accountable people control consequential changes.|' "$HOME/agentic-ai-101/workflow-map.md"
+cat "$HOME/agentic-ai-101/workflow-map.md"
+----
+
+== Prove
+
+You can now explain the complete pattern:
+
+[source,text]
+----
+Ask → Plan → Use → Prove → Decide → Record
+----
+
+You proved a deterministic learning pattern. You did not certify a production agent, a live model, autonomous action, Intel hardware placement, or performance.
+
+=== Learner checkpoint
+
+*Pass when:* you can identify the evidence source and final authority without referring to the model as either one.
+
+== Next journey
+
+Continue to **Agentic AI 201 — Build an AI Agent on Intel Xeon 6**. Carry the workflow map forward and make its tool, evidence, policy, and authority boundaries executable.
+

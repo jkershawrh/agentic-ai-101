@@ -1,0 +1,10 @@
+.git
+node_modules
+dist
+test-results
+playwright-report
+showroom/node_modules
+showroom/build
+*.log
+.env*
+

@@ -1,0 +1,87 @@
+version: 1
+blueprint: demo-blueprint.yaml
+presentation:
+  title: Understand Agentic Workflows
+  audience: New technical sellers, solution architects, application developers, and platform practitioners
+  desired_decision: Distinguish generation, tool-assisted investigation, and governed action—and identify who owns every boundary.
+  duration_minutes: 7
+  core_tension: A model can propose a useful action long before the system has earned permission to perform it.
+  cta: Continue to Agentic AI 201 and build the same bounded workflow.
+
+source_material:
+  mode: rough-idea
+  items:
+    - Launchpad Agentic AI learning progression
+    - Agentic AI 201, 401, 501, and 601 contracts
+    - Governed Agentic AI sales-entry experience
+  consequential_assumptions:
+    - This is a foundational learning journey, not another CPU inference lab and not a replacement for Agentic AI 201.
+    - The first proof uses a visibly labeled deterministic rehearsal trace; it does not claim live model participation or production action.
+    - Red Hat OpenShift and Intel Xeon are the target foundation, but live hardware identity and performance remain destination evidence.
+
+architecture:
+  actors: [requester, learner]
+  boundaries: [context-boundary, tool-boundary, authority-boundary, platform-boundary]
+  critical_flows: [read-only-investigation, state-changing-request]
+  omitted_from_main_story:
+    - Multi-agent orchestration reserved for Agentic AI 301
+    - Operations, recovery, and controlled change reserved for Agentic AI 401
+    - Scale qualification reserved for Agentic AI 501
+    - Bounded auto-remediation reserved for Agentic AI 601
+    - Unsupported performance, cost, ROI, and production-authority claims
+
+beats:
+  - beat: ordinary-world
+    claim: Teams often call any model-backed application an agent.
+  - beat: stakes
+    claim: When proposal, evidence, capability, and permission blur together, a useful answer can become an unsafe action.
+  - beat: root-cause
+    claim: An agentic workflow is understandable only when the model, tools, evidence, policy, and human authority remain visible and separable.
+  - beat: system-reveal
+    claim: One bounded request crosses six explicit boundaries from intent to an accountable decision.
+  - beat: live-proof
+    claim: The same architecture permits a read-only investigation but denies and escalates a state-changing request.
+  - beat: trials
+    claim: The safe result changes with requested capability and authority—not with how confidently the model speaks.
+  - beat: transformation
+    claim: Before building an agent, the learner can explain exactly where it may think, observe, propose, and stop.
+
+evidence:
+  - id: workflow-contract
+    claim: The workflow keeps request, model proposal, tool evidence, deterministic policy, human authority, and trace separate.
+    classification: verified-fact
+    source: demo-blueprint.yaml
+    owner: Agentic AI 101 candidate
+    last_verified: "2026-10-02"
+    treatment: Present as the reviewed design contract, not destination certification.
+  - id: rehearsal-comparison
+    claim: Read-only investigation and state-changing requests produce distinguishable decisions without mutating a target.
+    classification: rehearsal-fixture
+    source: checked-in typed fixtures pending the exact rehearsal service
+    owner: Agentic AI 101 candidate
+    last_verified: null
+    treatment: Always show REHEARSAL or OFFLINE until a reachable service returns the same source state.
+  - id: model-participation
+    claim: A live model participated and ran on Intel Xeon.
+    classification: future-state
+    source: future destination model and hardware telemetry
+    owner: Launchpad destination certification
+    last_verified: null
+    treatment: Do not claim live model or Intel placement until returned evidence proves both.
+
+live_systems:
+  - id: workflow-rehearsal
+    endpoint: /api/v1/workflows/run
+    timeout_ms: 5000
+    source_states: [rehearsal, offline]
+    required_fields: [sourceState, requestClass, modelRole, toolClass, evidence, policyDecision, humanAuthority, targetMutated, traceId]
+
+journey:
+  presentation: Seven-minute decision story with no more than seven top-level scenes
+  live_demonstration: Compare a read-only investigation with a denied state-changing request through the same workflow
+  guided_demo: Inspect prompt context, proposal, tool manifest, evidence provenance, deterministic policy, and audit trace
+  hands_on_lab: Change one scenario and policy input, predict the result, verify the trace, and export a workflow map for Agentic AI 201
+
+open_questions:
+  - Which exact rehearsal-service implementation and image will become the immutable workload candidate?
+  - Should the first public release retain rehearsal-only model participation or add a separately certified shared-model route?

@@ -1,0 +1,32 @@
+= Agentic AI 101 — Understand Agentic Workflows
+
+include::partial$status.adoc[]
+
+== The situation
+
+Your team has an AI assistant that can explain service health and can propose a restart. The generated answer may look confident, but confidence cannot answer the questions that matter:
+
+. What classified the request?
+. Which tool could the workflow use?
+. What evidence supported the result?
+. Which policy controlled the decision?
+. Who retained authority to change the service?
+. Could another operator reconstruct the run?
+
+You will trace two requests through one workflow. The first only investigates. The second asks for a state-changing action.
+
+== The operating pattern
+
+[source,text]
+----
+Ask → Plan → Use → Prove → Decide → Record
+----
+
+The model proposes. A bounded tool returns evidence. Deterministic policy controls permission. A person retains consequential authority. The trace records what happened.
+
+== What you will leave with
+
+You will create a small workflow map that identifies request class, tool boundary, evidence source, policy result, authority owner, and mutation state. That map becomes the design input for Agentic AI 201.
+
+Start with xref:00-frame.adoc[frame the workflow].
+

@@ -1,0 +1,246 @@
+version: 1
+status: reviewed
+source:
+  name: agentic-ai-101
+  kind: product-owner-approved-rough-idea
+  location: local-design
+  revision: design-2026-10-02-v1
+  discovered_at: "2026-10-02"
+  inspected_artifacts:
+    - /Users/jkershaw/Documents/launchpad/contracts/catalog-learning-progression-v1.yaml
+    - /Users/jkershaw/Documents/launchpad/docs/catalog-learning-progression.md
+    - /Users/jkershaw/Documents/launchpad/catalog/intel-xeon6-agent-201/catalog-item.yaml
+    - /Users/jkershaw/Documents/launchpad/catalog/operate-agentic-blueprint/catalog-item.yaml
+    - /Users/jkershaw/Documents/governed-agentic-ai-sales/demo-blueprint.yaml
+  discrepancies:
+    - The 101 journey was previously only a planned catalog placeholder with no source repository, runtime, Showroom content, or certification evidence.
+    - The first candidate uses a visibly labeled deterministic rehearsal service; it does not claim that a live LLM or production tool executed.
+    - Intel Xeon and Red Hat OpenShift are the target platform, but hardware identity and performance require destination telemetry before any live claim.
+
+intent:
+  primary_user: New technical sellers, solution architects, application developers, and platform practitioners beginning the Agentic AI learning track
+  workload: Trace one service request through prompt, model proposal, tool selection, evidence, deterministic policy, human authority, and an audit record
+  recognized_problem: People often call any model-backed application an agent and cannot identify where evidence ends, policy begins, or action authority belongs.
+  audience_decision: Decide whether a proposed workflow is simple generation, tool-assisted investigation, or an agentic action that requires a policy and human authority boundary.
+  desired_outcome: Explain every boundary in one agentic workflow, predict the changed-condition result, and leave with a reviewable workflow map ready for Agentic AI 201.
+
+architecture:
+  actors:
+    - id: requester
+      name: Requester
+      kind: human
+      responsibility: State the desired outcome without implicitly granting tool or action authority.
+      status: verified
+      source: Agentic AI track learning contract
+    - id: learner
+      name: Learner and reviewer
+      kind: human-authority
+      responsibility: Inspect the trace, classify the workflow, and retain the final decision.
+      status: verified
+      source: Agentic AI 101 learner outcome
+  runtime_objects:
+    - id: prompt
+      name: Bounded request contract
+      kind: input-contract
+      responsibility: Preserve the requested outcome, constraints, and correlation identity.
+      status: verified-design
+      source: Agentic AI 101 workflow contract
+    - id: orchestrator
+      name: Agent orchestrator
+      kind: OpenShift-workload
+      responsibility: Assemble context, request a plan, select an allowlisted tool, and preserve the trace.
+      status: verified-design
+      source: Agentic AI 101 workflow contract
+    - id: model
+      name: Advisory model
+      kind: generative-llm
+      responsibility: Propose a plan or explanation; never grant permission or become evidence by itself.
+      status: rehearsal-only
+      source: Agentic AI 101 proof fixture
+    - id: tools
+      name: Allowlisted tools
+      kind: tool-registry
+      responsibility: Separate read-only evidence retrieval from state-changing capabilities.
+      status: verified-design
+      source: Agentic AI 101 workflow contract
+    - id: evidence
+      name: Tool evidence
+      kind: evidence-record
+      responsibility: Return source-labeled observations that can support or contradict the proposal.
+      status: verified-design
+      source: Agentic AI 101 evidence contract
+    - id: policy
+      name: Deterministic policy gate
+      kind: decision-service
+      responsibility: Check tool class, scope, evidence, approval, and action authority; deny by default.
+      status: verified-design
+      source: Agentic AI 101 policy contract
+    - id: audit
+      name: Workflow trace
+      kind: evidence-store
+      responsibility: Record the request, proposal, tool, evidence, policy result, human disposition, and source state.
+      status: verified-design
+      source: Agentic AI 101 trace contract
+    - id: openshift
+      name: Red Hat OpenShift namespace
+      kind: target-platform
+      responsibility: Host and isolate the participant presentation, rehearsal service, terminal, and evidence.
+      status: target
+      source: Launchpad destination contract
+    - id: xeon
+      name: Intel Xeon compute
+      kind: target-hardware
+      responsibility: Provide the intended CPU foundation for the OpenShift workload and later model-serving journeys.
+      status: target-not-observed
+      source: Launchpad destination telemetry required
+  boundaries:
+    - id: context-boundary
+      name: Prompt and context boundary
+      purpose: Limit what the model may see and distinguish instructions from retrieved evidence.
+      status: verified-design
+    - id: tool-boundary
+      name: Tool capability boundary
+      purpose: Make read-only and state-changing capabilities explicit and independently governable.
+      status: verified-design
+    - id: authority-boundary
+      name: Policy and human authority boundary
+      purpose: Prevent a model proposal or tool availability from becoming permission to act.
+      status: verified-design
+    - id: platform-boundary
+      name: Participant OpenShift namespace
+      purpose: Isolate the learner workload and keep all activity scoped to the seat.
+      status: target
+  external_dependencies:
+    - A destination-qualified OpenShift cluster and namespace-scoped participant identity
+    - Approved immutable presentation and rehearsal-service images
+    - Live model and Intel hardware telemetry only if a future release claims live inference
+  flows:
+    - id: read-only-investigation
+      name: Request to evidence-backed answer
+      status: verified-design-rehearsal
+      steps:
+        - {from: requester, to: prompt, purpose: express one bounded service question, protocol: HTTPS-JSON, evidence: request-contract}
+        - {from: prompt, to: orchestrator, purpose: establish task and correlation context, protocol: workflow-v1, evidence: trace-id}
+        - {from: orchestrator, to: model, purpose: request an advisory plan, protocol: model-request-rehearsal, evidence: proposal}
+        - {from: model, to: tools, purpose: propose one allowlisted read-only tool, protocol: tool-call-proposal, evidence: proposed-tool}
+        - {from: tools, to: evidence, purpose: retrieve source-labeled service status, protocol: bounded-tool-v1, evidence: tool-result}
+        - {from: evidence, to: policy, purpose: evaluate evidence and requested authority, protocol: policy-input-v1, evidence: evidence-provenance}
+        - {from: policy, to: learner, purpose: permit explanation while retaining human decision, protocol: disposition-v1, evidence: policy-result}
+        - {from: learner, to: audit, purpose: record the final interpretation and next step, protocol: trace-record-v1, evidence: workflow-trace}
+    - id: state-changing-request
+      name: Request to guarded action proposal
+      status: verified-design-rehearsal
+      steps:
+        - {from: requester, to: prompt, purpose: request a state-changing service action, protocol: HTTPS-JSON, evidence: request-contract}
+        - {from: prompt, to: orchestrator, purpose: establish task and correlation context, protocol: workflow-v1, evidence: trace-id}
+        - {from: orchestrator, to: model, purpose: request an advisory action plan, protocol: model-request-rehearsal, evidence: proposal}
+        - {from: model, to: tools, purpose: propose a state-changing capability, protocol: tool-call-proposal, evidence: proposed-tool}
+        - {from: tools, to: policy, purpose: expose capability class without executing it, protocol: capability-manifest-v1, evidence: tool-class}
+        - {from: policy, to: learner, purpose: deny execution and require explicit authority, protocol: disposition-v1, evidence: denial-reason}
+        - {from: learner, to: audit, purpose: record abstention or escalation without mutation, protocol: trace-record-v1, evidence: workflow-trace}
+
+operational_pattern:
+  name: Ask, Plan, Use, Prove, Decide, Record
+  rationale: A beginner should be able to point to the request, model role, tool boundary, returned evidence, policy decision, and human authority without confusing one for another.
+  steps:
+    - id: ask
+      name: Bound the request
+      action: Identify the outcome, context, and constraints before invoking a model.
+      evidence: request contract and correlation ID
+    - id: plan
+      name: Interpret the proposal
+      action: Treat model output as an advisory plan rather than permission or evidence.
+      evidence: model participation and proposal source state
+    - id: use
+      name: Select a capability
+      action: Distinguish a read-only evidence tool from a state-changing action tool.
+      evidence: tool identity, class, input, and result
+    - id: prove
+      name: Inspect returned evidence
+      action: Check source, freshness, and whether the evidence actually supports the proposed response.
+      evidence: result provenance and observation
+    - id: decide
+      name: Apply policy and authority
+      action: Permit an explanation, request human approval, or deny the workflow without allowing the model to decide.
+      evidence: policy version, disposition, and human owner
+    - id: record
+      name: Preserve the trace
+      action: Record enough context to explain what happened and hand the learner into the build journey.
+      evidence: complete workflow map and learner checkpoint
+  changed_condition: The same service context changes from a read-only status question to a restart request; the workflow must move from evidence-backed explanation to deny-and-escalate without executing an action.
+  close: Continue to Agentic AI 201 to build the model and MCP tool path after the learner can explain every boundary.
+
+evidence:
+  - id: workflow-contract
+    claim: The 101 design separates prompt, model proposal, tool result, deterministic policy, human authority, and audit trace.
+    source: demo-blueprint.yaml and future contracts/workflow-trace.v1.schema.json
+    source_state: verified-design
+    collection: contract validation and component tests
+  - id: rehearsal-comparison
+    claim: The rehearsal returns distinguishable outcomes for read-only investigation and a state-changing request without mutating a target.
+    source: future exact Agentic AI 101 rehearsal service
+    source_state: planned-rehearsal
+    collection: typed API and checked-in fixture until a live service is built
+  - id: model-participation
+    claim: A live LLM participated in the workflow.
+    source: future model gateway telemetry
+    source_state: not-observed
+    collection: prohibited as a claim until the destination response identifies the model and source state
+  - id: intel-placement
+    claim: The workload ran on Intel Xeon.
+    source: future destination telemetry
+    source_state: not-observed
+    collection: target node and runtime metadata required
+
+decisions:
+  - id: classify-workflow
+    owner: Learner and instructor
+    rule: Classify the flow as generation, tool-assisted investigation, or governed agentic action from the visible boundaries and authority.
+    fail_closed: true
+  - id: permit-tool-use
+    owner: Deterministic policy and named human authority
+    rule: Read-only evidence retrieval may proceed within scope; state-changing tools require separately proven approval and remain disabled in 101.
+    fail_closed: true
+  - id: next-learning-stage
+    owner: Learner and instructor
+    rule: Continue to 201 only after the learner can explain the full workflow trace and identify the authority boundary.
+    fail_closed: true
+
+ai_assessment:
+  needed: true
+  kind: agentic
+  rationale: The subject is the role of a model inside an agentic workflow, but the initial proof may use an explicitly labeled rehearsal proposal so no live-inference claim is invented.
+  tasks:
+    - Interpret a bounded service request
+    - Propose a plan and one allowlisted tool
+    - Explain returned evidence
+  inputs:
+    - Bounded request contract
+    - Approved service context
+    - Source-labeled tool result
+  outputs:
+    - Advisory plan
+    - Proposed tool invocation
+    - Evidence-grounded explanation or abstention
+  model_identity_source: Rehearsal fixture in the initial candidate; future live gateway response when independently certified
+  hardware_identity_source: Destination telemetry when available; never inferred from image architecture
+  evidence_access:
+    - Only approved request context and returned tool evidence
+  action_authority: none
+  validation:
+    - Deterministic policy checks tool class and scope
+    - Learner compares proposal with returned evidence
+    - Human authority owns any escalation
+  fallback: Use a visibly labeled deterministic rehearsal trace; missing model or evidence never expands capability.
+  final_decision_owner: Learner or named human reviewer
+
+story_mapping:
+  audience_question: What makes a workflow agentic, and where should its authority stop?
+  stakes:
+    - A model response is not operational evidence.
+    - A tool being available does not mean the agent has permission to use it.
+  architecture_flow_ids: [read-only-investigation, state-changing-request]
+  live_proof_flow_ids: [read-only-investigation, state-changing-request]
+  comparison: Read-only evidence-backed explanation versus a state-changing request denied and escalated through the same architecture
+  payoff: The learner can name every boundary and predict the safe outcome before building an agent.
+  next_journey: Agentic AI 201 — Build an AI Agent on Intel Xeon 6

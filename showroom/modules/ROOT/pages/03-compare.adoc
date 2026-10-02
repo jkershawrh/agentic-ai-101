@@ -1,0 +1,43 @@
+= Compare the traces
+:page-duration-minutes: 5
+
+include::partial$status.adoc[]
+
+== Show
+
+Compare two requests that used the same architecture but reached different authority outcomes.
+
+== Learn
+
+The distinction is not how confident the generated text sounds. The inspectable differences are request class, tool scope, policy result, authority owner, and mutation state.
+
+== Do
+
+Generate a compact comparison and place the results in your workflow map.
+
+[source,bash,role="execute"]
+----
+jq -s '
+  map({requestClass,toolClass,policyDecision,humanAuthority,targetMutated,traceId})
+' "$HOME/agentic-ai-101/read-only.json" "$HOME/agentic-ai-101/state-change.json" \
+  | tee "$HOME/agentic-ai-101/comparison.json" | jq
+
+READ_RESULT="$(jq -r '"\(.requestClass) / \(.policyDecision) / mutated=\(.targetMutated)"' "$HOME/agentic-ai-101/read-only.json")"
+CHANGE_RESULT="$(jq -r '"\(.requestClass) / \(.policyDecision) / mutated=\(.targetMutated)"' "$HOME/agentic-ai-101/state-change.json")"
+sed -i "s|- Read-only result:.*|- Read-only result: $READ_RESULT|" "$HOME/agentic-ai-101/workflow-map.md"
+sed -i "s|- State-change result:.*|- State-change result: $CHANGE_RESULT|" "$HOME/agentic-ai-101/workflow-map.md"
+sed -i 's|- Evidence source:.*|- Evidence source: REHEARSAL, returned by bounded workflow service|' "$HOME/agentic-ai-101/workflow-map.md"
+sed -i 's|- Authority owner:.*|- Authority owner: human operator for consequential change|' "$HOME/agentic-ai-101/workflow-map.md"
+sed -i 's|- Target mutated:.*|- Target mutated: false in both scenarios|' "$HOME/agentic-ai-101/workflow-map.md"
+----
+
+== Prove
+
+The changed request altered the policy and authority result without expanding tool access or mutating the target.
+
+=== Learner checkpoint
+
+*Pass when:* you can classify an example as generation, agentic investigation, or governed action—and name the additional boundary each level requires.
+
+Next: xref:04-decide.adoc[prove understanding].
+

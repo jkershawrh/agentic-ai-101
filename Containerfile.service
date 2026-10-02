@@ -1,0 +1,11 @@
+FROM registry.access.redhat.com/ubi9/nodejs-22-minimal:latest
+
+WORKDIR /opt/app-root/src
+COPY --chown=1001:0 service ./service
+
+ENV NODE_ENV=production \
+    PORT=8080
+
+USER 1001
+EXPOSE 8080
+CMD ["node", "service/server.mjs"]
