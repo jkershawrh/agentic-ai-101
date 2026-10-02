@@ -8,6 +8,7 @@ RUN npm run build
 FROM docker.io/nginxinc/nginx-unprivileged:1.29-alpine
 USER root
 RUN apk upgrade --no-cache
+RUN sed -i 's/^worker_processes.*/worker_processes 1;/' /etc/nginx/nginx.conf
 COPY --from=build /opt/app-root/src/dist /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 USER 101
