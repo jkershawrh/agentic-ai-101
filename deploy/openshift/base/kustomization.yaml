@@ -11,5 +11,5 @@ labels:
   - pairs:
       app.kubernetes.io/part-of: agentic-ai-101
       app.kubernetes.io/managed-by: launchpad
-    includeSelectors: true
+    includeSelectors: false
     includeTemplates: true

@@ -8,11 +8,15 @@ spec:
     matchLabels:
       app.kubernetes.io/name: agentic-ai-101
       app.kubernetes.io/component: rehearsal-service
+      app.kubernetes.io/part-of: agentic-ai-101
+      app.kubernetes.io/managed-by: launchpad
   template:
     metadata:
       labels:
         app.kubernetes.io/name: agentic-ai-101
         app.kubernetes.io/component: rehearsal-service
+        app.kubernetes.io/part-of: agentic-ai-101
+        app.kubernetes.io/managed-by: launchpad
     spec:
       automountServiceAccountToken: false
       containers:

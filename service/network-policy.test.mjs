@@ -7,7 +7,6 @@ test('the Showroom terminal can reach the rehearsal API', async () => {
     new URL('../deploy/openshift/base/network-policy.yaml', import.meta.url),
     'utf8',
   )
-
   assert.match(policy, /app\.kubernetes\.io\/name: showroom/)
   assert.doesNotMatch(policy, /^\s+app: showroom$/m)
 })

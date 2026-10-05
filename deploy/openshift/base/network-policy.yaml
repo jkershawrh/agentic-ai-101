@@ -7,6 +7,8 @@ spec:
     matchLabels:
       app.kubernetes.io/name: agentic-ai-101
       app.kubernetes.io/component: rehearsal-service
+      app.kubernetes.io/part-of: agentic-ai-101
+      app.kubernetes.io/managed-by: launchpad
   policyTypes: [Ingress]
   ingress:
     - from:
@@ -14,6 +16,8 @@ spec:
             matchLabels:
               app.kubernetes.io/name: agentic-ai-101
               app.kubernetes.io/component: presentation
+              app.kubernetes.io/part-of: agentic-ai-101
+              app.kubernetes.io/managed-by: launchpad
         - podSelector:
             matchLabels:
               app.kubernetes.io/name: showroom
