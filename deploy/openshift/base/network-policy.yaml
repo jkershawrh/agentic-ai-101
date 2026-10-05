@@ -16,7 +16,6 @@ spec:
               app.kubernetes.io/component: presentation
         - podSelector:
             matchLabels:
-              app: showroom
+              app.kubernetes.io/name: showroom
       ports:
         - {protocol: TCP, port: 8080}
-
