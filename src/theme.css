@@ -56,10 +56,10 @@ a { color: inherit; }
 .opening p { color: var(--text-dim); font-size: clamp(1rem, 2vw, 1.35rem); }
 .start-hint { display: block; color: var(--text-disabled); margin-top: 4rem; font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; }
 .brand-lockup { display: flex; align-items: center; justify-content: center; gap: 1.4rem; }
-.brand-lockup img { width: auto; height: 32px; max-width: 150px; object-fit: contain; }
+.brand-lockup img { width: auto; height: 48px; max-width: 210px; object-fit: contain; }
 .brand-lockup span { color: var(--text-disabled); font-size: 1.5rem; font-weight: 300; }
 .brand-lockup-compact { gap: .75rem; }
-.brand-lockup-compact img { height: 20px; max-width: 90px; }
+.brand-lockup-compact img { height: 28px; max-width: 125px; }
 .brand-lockup-compact span { font-size: 1rem; }
 .brand-lockup-hero { margin-bottom: var(--space-6); }
 
@@ -285,7 +285,7 @@ blockquote { font: 500 clamp(1.8rem, 4vw, 3.3rem)/1.28 'Red Hat Display'; margin
 @media (max-width: 760px) {
   .demo-header { padding: .55rem .5rem; }
   .brand-lockup-compact { gap: .35rem; }
-  .brand-lockup-compact img { max-width: 48px; height: 14px; }
+  .brand-lockup-compact img { max-width: 100px; height: 22px; }
   .brand-lockup-compact span { font-size: .75rem; }
   .presenter-controls { gap: .15rem; }
   .presenter-controls > button { width: 24px; height: 28px; padding: 0; font-size: .95rem; }
