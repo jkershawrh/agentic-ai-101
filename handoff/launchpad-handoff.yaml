@@ -103,7 +103,7 @@ proposed_launchpad_intake:
       observed_largest_run: 0
       measurement_status: LOCAL_ONLY
     tabs:
-      - {id: story, title: Interactive Story, source: workload.route.presentation}
+      - {id: story, title: Interactive Story, source: workload.route.presentation, path: /story/, same_origin_path: /story/, rewrite_target: /, public_proxy_root: true}
       - {id: terminal, title: Terminal, source: showroom.terminal}
     workload:
       deployment_values:

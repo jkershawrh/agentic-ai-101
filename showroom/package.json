@@ -7,11 +7,11 @@
     "build": "antora --clean --fetch ../site.yml",
     "check:content": "node scripts/validate-content.mjs",
     "check:links": "node scripts/check-links.mjs",
-    "check": "npm run check:content && npm run build && npm run check:links"
+    "test:execute-ui": "node scripts/test-execute-ui.mjs",
+    "check": "npm run check:content && npm run test:execute-ui && npm run build && npm run check:links"
   },
   "devDependencies": {
     "@antora/cli": "3.2.0",
     "@antora/site-generator": "3.2.0"
   }
 }
-
