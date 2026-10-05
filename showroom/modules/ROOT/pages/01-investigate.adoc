@@ -18,9 +18,9 @@ Check readiness, run the read-only scenario, and save its trace.
 [source,bash,role="execute"]
 ----
 export AGENTIC_101_API_URL="${AGENTIC_101_API_URL:-http://agentic-ai-101:8080}"
-curl -fsS "$AGENTIC_101_API_URL/readyz" | jq
+curl --connect-timeout 5 --max-time 15 -fsS "$AGENTIC_101_API_URL/readyz" | jq
 
-curl -fsS -X POST "$AGENTIC_101_API_URL/api/v1/workflows/run" \
+curl --connect-timeout 5 --max-time 30 -fsS -X POST "$AGENTIC_101_API_URL/api/v1/workflows/run" \
   -H 'Content-Type: application/json' \
   -d '{"scenario":"read-only"}' \
   | tee "$HOME/agentic-ai-101/read-only.json" \
@@ -48,4 +48,3 @@ jq -e '
 *Pass when:* the command prints `PASS` and you can point to the tool—not the model—as the source of evidence.
 
 Next: xref:02-request-action.adoc[request a controlled action].
-

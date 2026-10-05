@@ -18,7 +18,7 @@ Run the state-change scenario and save its trace.
 [source,bash,role="execute"]
 ----
 export AGENTIC_101_API_URL="${AGENTIC_101_API_URL:-http://agentic-ai-101:8080}"
-curl -fsS -X POST "$AGENTIC_101_API_URL/api/v1/workflows/run" \
+curl --connect-timeout 5 --max-time 30 -fsS -X POST "$AGENTIC_101_API_URL/api/v1/workflows/run" \
   -H 'Content-Type: application/json' \
   -d '{"scenario":"state-change"}' \
   | tee "$HOME/agentic-ai-101/state-change.json" \
@@ -47,4 +47,3 @@ jq -e '
 *Pass when:* the command prints `PASS`. Explain why escalation is a successful governed outcome rather than a failed agent.
 
 Next: xref:03-compare.adoc[compare the traces].
-
