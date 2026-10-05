@@ -21,7 +21,7 @@ spec:
       automountServiceAccountToken: false
       containers:
         - name: service
-          image: ghcr.io/jkershawrh/agentic-ai-101-rehearsal@sha256:7839278c27a1960f425e37dbe3a8c4479d61c866727207976446120686bf3e63
+          image: ghcr.io/jkershawrh/agentic-ai-101-rehearsal@sha256:1fedfffd99183023350cbff16c9535fb3ff9bb67a3ca44f575d6a50d8cfc5a6a
           imagePullPolicy: IfNotPresent
           ports:
             - {name: http, containerPort: 8080}

@@ -24,7 +24,7 @@ spec:
           emptyDir: {}
       containers:
         - name: presentation
-          image: ghcr.io/jkershawrh/agentic-ai-101-presentation@sha256:311b0ee016af01c76f8339ccc14006060d4e9d1fb5feab856c0c15aefa426d0f
+          image: ghcr.io/jkershawrh/agentic-ai-101-presentation@sha256:bc9d4db4534e08551ff48938f6e840a27fe1373045586e922d3b100afae2edf9
           imagePullPolicy: IfNotPresent
           ports:
             - {name: http, containerPort: 8080}
