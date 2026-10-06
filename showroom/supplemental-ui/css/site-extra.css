@@ -23,9 +23,9 @@
   text-decoration: none;
 }
 
-.launchpad-showroom-intel {
+.launchpad-showroom-redhat {
   display: block;
-  height: 1.15rem;
+  height: 1.9rem;
   width: auto;
 }
 
@@ -35,10 +35,9 @@
   line-height: 1;
 }
 
-.launchpad-showroom-rhdp {
+.launchpad-showroom-intel {
   display: block;
-  height: 1.55rem;
-  max-width: 13rem;
+  height: 1.45rem;
   width: auto;
 }
 
@@ -65,19 +64,31 @@
     padding-right: 0.65rem;
   }
 
-  .launchpad-showroom-intel {
-    height: 1rem;
+  .launchpad-showroom-redhat {
+    height: 1.55rem;
   }
 
-  .launchpad-showroom-rhdp {
-    height: 1.25rem;
-    max-width: 10.5rem;
+  .launchpad-showroom-intel {
+    height: 1.2rem;
   }
 
   .launchpad-showroom-title {
     font-size: 0.8rem;
     padding-left: 0.65rem;
   }
+}
+
+.launchpad-showroom-footer {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: 3rem;
+}
+
+.launchpad-showroom-footer-label {
+  color: #4f5255;
+  font-size: 0.875rem;
+  font-weight: 600;
 }
 
 @media (max-width: 540px) {
